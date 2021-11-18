@@ -1,5 +1,18 @@
-// 判断当前函数传入的参数是否大于或等于fn需要参数的数量，如果是，直接执行fn
-// 如果传入参数数量不够，返回一个闭包，暂存传入的参数，并重新返回curry函数
+// function curry(func) {
+//     // const arguments = []
+// }
+//
+// function sum(a, b, c) {
+//     return a + b + c;
+// }
+//
+// let curriedSum = curry(sum);
+//
+// console.log(curriedSum(1, 2, 3)); // 6, still callable normally
+// console.log(curriedSum(1)(2, 3)); // 6, currying of 1st arg
+// console.log(curriedSum(1)(2)(3)); // 6, full currying
+
+
 function curry(func) {
     const args = [...arguments].slice(1)
     if (args.length >= func.length) {
@@ -9,12 +22,22 @@ function curry(func) {
     }
 }
 
-function sum(a, b, c) {
-    return a + b + c;
+class Test {
+    default = 0;
+
+    sum(...arg) {
+        let sum = 0;
+        for (let i = 0; i < arg.length; i++) {
+            sum += arg[i];
+        }
+        return this.default + sum;
+    }
 }
 
-let curriedSum = curry(sum);
+const test = new Test();
+
+const curriedSum = curry(test.sum);
 
 console.log(curriedSum(1, 2, 3)); // 6, still callable normally
-console.log(curriedSum(1)(2, 3)); // 6, currying of 1st arg
-console.log(curriedSum(1)(2)(3)); // 6, full currying
+// console.log(curriedSum(1)(2, 3)); // 6, currying of 1st arg
+// console.log(curriedSum(1)(2)(3)); // 6, full currying

@@ -4,20 +4,13 @@
  * @return {number[]}
  */
 
-// 手动实现一个大数相加
-// 当前位 = (num 当前位 + k 当前位 + 进位 carry) % 10
-// 两个数加完之后，判断一下进位 carry, 不为 0 的话就加在前面
-
 const addToArrayForm = function (num, k) {
-    const res = []
-    let carry = 0;
+    const res = [];
     let index = num.length - 1;
-
+    let carry = 0;
     while (index >= 0 || k > 0) {
         let curK = k % 10;
         let curNum = index < 0 ? 0 : num[index];
-
-        console.log({curK}, {curNum}, {carry});
 
         let curDigitSum = curK + curNum + carry;
 
