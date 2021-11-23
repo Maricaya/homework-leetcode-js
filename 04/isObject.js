@@ -7,3 +7,7 @@ function is(a, b) {
         return a !== a && b !== b
     }
 }
+
+console.log(is(0, -0));
+
+console.log(is(NaN, NaN));
