@@ -1,0 +1,12 @@
+{
+  "name": "homework-leetcode-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "repository": "git@github.com:Maricaya/homework-leetcode-js.git",
+  "author": "Maricaya <915270549@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "immer": "^9.0.6"
+  }
+}
